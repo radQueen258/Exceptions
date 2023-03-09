@@ -66,11 +66,22 @@ public class exceptionExercises {
         try {
             System.out.println("n: ");
             int n = radka.nextInt();
+
+            if (n < 15) {
+                throw new UnauthorizedException();
+            }
+
             int[] x = new int[n];
             System.out.println("k1: ");
             int k1 = radka.nextInt();
             System.out.println("k2: ");
             int k2 = radka.nextInt();
+
+            if (k1 < n || k1 > n) {
+                throw new InvalidNumbers();
+            } else if (k2 < n || k2 > n) {
+                throw new InvalidNumbers();
+            }
 
             int[] y = new int[n];
             fillingRnd12(x, k1, k2,y);
@@ -80,17 +91,23 @@ public class exceptionExercises {
 
 
         }
+        catch (UnauthorizedException e) {
+            System.out.println(e.getMessage());
+        }
+        catch (InvalidNumbers e) {
+            System.out.println(e.getMessage());
+        }
         catch (IllegalArgumentException iae) {
            System.out.println("Only integers are allowed in this code!");
        }
-        catch (ArrayIndexOutOfBoundsException aibe) {
+        catch (ArrayIndexOutOfBoundsException e) {
            System.out.println("There is an issue with the length of the array");
         }
         catch (Exception e) {
             System.out.println("Unknown error");
         }
         finally {
-            System.out.println("End Program 3 ;)");
+            System.out.println("End Program 3 and 4 ;)");
         }
 
 
@@ -141,7 +158,7 @@ public class exceptionExercises {
            if (shadedArea(array[i], arr[array[i]])) {
                System.out.println("x: " + array[i] + ", y: " + arr[array[i]]);
            } else {
-               System.out.println("No point lies!");
+               System.out.println("No point !");
            }
        }
         array[k1] = 20;
@@ -150,3 +167,20 @@ public class exceptionExercises {
     }
     //--------------EXERCISE 4--------------
 }
+    class UnauthorizedException extends RuntimeException {
+        public UnauthorizedException () {
+            super("Invalid Number, n should be bigger than 15");
+        }
+        public UnauthorizedException (String message) {
+            super(message);
+        }
+
+}
+    class InvalidNumbers extends Exception {
+    public InvalidNumbers () {
+        super(("k1 and k2 should be between 0 and the value of n"));
+    }
+    public InvalidNumbers (String message) {
+        super(message);
+    }
+    }
