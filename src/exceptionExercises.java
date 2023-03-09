@@ -71,8 +71,14 @@ public class exceptionExercises {
             int k1 = radka.nextInt();
             System.out.println("k2: ");
             int k2 = radka.nextInt();
-            fillingRnd12(x, k1, k2);
+
+            int[] y = new int[n];
+            fillingRnd12(x, k1, k2,y);
             System.out.println(Arrays.toString(x));
+            System.out.println(Arrays.toString(y));
+            System.out.println();
+
+
         }
         catch (IllegalArgumentException iae) {
            System.out.println("Only integers are allowed in this code!");
@@ -122,12 +128,24 @@ public class exceptionExercises {
 //    }
     //--------------EXERCISE 3--------------
 
-    public static void fillingRnd12 (int[] array, int k1, int k2) {
+    public static boolean shadedArea (int array, int arr) {
+        return array >= 0 && arr >= 0 && Math.sqrt(((array * array) + (arr * arr))) <= Math.sqrt(32) ||
+                array <= 0 && arr <= 0 && array * arr <= 16 || array <= 0 && arr >= 0 && array * arr <= 16;
+
+    }
+    public static void fillingRnd12 (int[] array, int k1, int k2, int[] arr) {
         for (int i = 0; i < array.length; i ++) {
-           array[i] = any.nextInt(-10,20);
+           array[i] = any.nextInt(5,15);
+           arr [array[i]] = any.nextInt(5,15);
+
+           if (shadedArea(array[i], arr[array[i]])) {
+               System.out.println("x: " + array[i] + ", y: " + arr[array[i]]);
+           } else {
+               System.out.println("No point lies!");
+           }
        }
-        array[k1] = 34;
-        array[k2] = 50;
+        array[k1] = 20;
+        array[k2] = 25;
 
     }
     //--------------EXERCISE 4--------------
