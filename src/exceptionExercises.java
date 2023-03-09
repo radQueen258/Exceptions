@@ -29,39 +29,64 @@ public class exceptionExercises {
 //        }
         System.out.println();
         //--------------EXERCISE 2--------------
-        System.out.println("--------------EXERCISE 2--------------");
+//        System.out.println("--------------EXERCISE 2--------------");
+//        try {
+//            int[] Arr = new int[8];
+//            fillingArray(Arr);
+//            Arr[4] = 3;
+//            Arr[5] = 2;
+//            Arr[6] = 64;
+//            Arr[7] = 12;
+//
+//            for (int j : Arr) {
+//                System.out.print(j + " ");
+//            }
+//            System.out.println();
+//
+//            int[] arrRnd = new int[10];
+//            fillingRandom(arrRnd);
+//            System.out.println(Arrays.toString(arrRnd));
+//            System.out.println();
+//        }
+//        catch (IllegalArgumentException iae) {
+//            System.out.println("Only integers are allowed in this code!");
+//        }
+//        catch (ArrayIndexOutOfBoundsException aibe) {
+//            System.out.println("There is an issue with the length of the array");
+//        }
+//        catch (Exception e) {
+//            System.out.println("Unknown error");
+//        }
+//        finally {
+//            System.out.println("End Program 2 ;)");
+//        }
+        //--------------EXERCISE 3--------------
+        System.out.println("--------------EXERCISE 3--------------");
+
         try {
-            int[] Arr = new int[8];
-            fillingArray(Arr);
-            Arr[4] = 3;
-            Arr[5] = 2;
-            Arr[6] = 64;
-            Arr[7] = 12;
-
-            for (int j : Arr) {
-                System.out.print(j + " ");
-            }
-            System.out.println();
-
-            int[] arrRnd = new int[10];
-            fillingRandom(arrRnd);
-            System.out.println(Arrays.toString(arrRnd));
-            System.out.println();
+            System.out.println("n: ");
+            int n = radka.nextInt();
+            int[] x = new int[n];
+            System.out.println("k1: ");
+            int k1 = radka.nextInt();
+            System.out.println("k2: ");
+            int k2 = radka.nextInt();
+            fillingRnd12(x, k1, k2);
+            System.out.println(Arrays.toString(x));
         }
         catch (IllegalArgumentException iae) {
-            System.out.println("Only integers are allowed in this code!");
-        }
+           System.out.println("Only integers are allowed in this code!");
+       }
         catch (ArrayIndexOutOfBoundsException aibe) {
-            System.out.println("There is an issue with the length of the array");
+           System.out.println("There is an issue with the length of the array");
         }
         catch (Exception e) {
             System.out.println("Unknown error");
         }
         finally {
-            System.out.println("End Program 2 ;)");
+            System.out.println("End Program 3 ;)");
         }
-        //--------------EXERCISE 3--------------
-        System.out.println("--------------EXERCISE 3--------------");
+
 
         System.out.println();
         //--------------EXERCISE 4--------------
@@ -83,18 +108,27 @@ public class exceptionExercises {
 //    }
 
     //--------------EXERCISE 2--------------
-    public static void fillingArray (int[]array) {
-        Scanner radka = new Scanner(System.in);
-        System.out.println("Insert the elements of the array up to half: ");
-       for (int i = 0; i < array.length / 2; i ++) {
-            array[i] = radka.nextInt();
-        }
-    }
-    public static void fillingRandom (int[]array) {
-        for (int i = 0; i < array.length; i ++) {
-            array[i] = any.nextInt(-10,20);
-        }
-    }
+//    public static void fillingArray (int[]array) {
+//        Scanner radka = new Scanner(System.in);
+//        System.out.println("Insert the elements of the array up to half: ");
+//       for (int i = 0; i < array.length / 2; i ++) {
+//            array[i] = radka.nextInt();
+//        }
+//    }
+//    public static void fillingRandom (int[]array) {
+//        for (int i = 0; i < array.length; i ++) {
+//            array[i] = any.nextInt(-10,20);
+//        }
+//    }
     //--------------EXERCISE 3--------------
+
+    public static void fillingRnd12 (int[] array, int k1, int k2) {
+        for (int i = 0; i < array.length; i ++) {
+           array[i] = any.nextInt(-10,20);
+       }
+        array[k1] = 34;
+        array[k2] = 50;
+
+    }
     //--------------EXERCISE 4--------------
 }
