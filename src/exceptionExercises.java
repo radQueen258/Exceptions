@@ -5,10 +5,17 @@ import java.util.Scanner;
 
 public class exceptionExercises {
     static Random any = new Random();
+    static Scanner radka = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner radka = new Scanner(System.in);
 
-        //--------------EXERCISE 1--------------
+        exercise1();
+        exercise2();
+        exercise3and4();
+
+    }
+
+    public static void exercise1() {
+
         System.out.println("--------------EXERCISE 1--------------");
         try {
             System.out.println("x= ");
@@ -28,7 +35,10 @@ public class exceptionExercises {
             System.out.println("End Program 1 :) ");
         }
         System.out.println();
-        //--------------EXERCISE 2--------------
+
+    }
+
+    public static void exercise2(){
         System.out.println("--------------EXERCISE 2--------------");
         try {
             int[] Arr = new int[8];
@@ -60,8 +70,11 @@ public class exceptionExercises {
         finally {
             System.out.println("End Program 2 ;)");
         }
-        //--------------EXERCISE 3--------------
-        System.out.println("--------------EXERCISE 3--------------");
+    }
+
+    public static void exercise3and4() {
+        System.out.println("--------------EXERCISE 3 AND 4--------------");
+
 
         try {
             System.out.println("n: ");
@@ -77,11 +90,10 @@ public class exceptionExercises {
             System.out.println("k2: ");
             int k2 = radka.nextInt();
 
-            if (k1 < n || k2 < n) {
-                throw new InvalidNumbers();
-            } else if (k1 > n || k2 > n) {
+            if (k1 > n || k2 > n) {
                 throw new InvalidNumbers();
             }
+            if (k1 > k2) throw new InvalidNumbers();
 
             int[] y = new int[n];
             fillingRnd12(x, k1, k2,y);
@@ -91,19 +103,14 @@ public class exceptionExercises {
             System.out.println(Arrays.toString(y));
             System.out.println();
 
+            System.out.println();
+        }
 
-        }
-        catch (UnauthorizedException e) {
-            System.out.println(e.getMessage());
-        }
-        catch (InvalidNumbers e) {
-            System.out.println(e.getMessage());
-        }
         catch (IllegalArgumentException iae) {
-           System.out.println("Only integers are allowed in this code!");
-       }
+            System.out.println("Only integers are allowed in this code!");
+        }
         catch (ArrayIndexOutOfBoundsException e) {
-           System.out.println("There is an issue with the length of the array");
+            System.out.println("There is an issue with the length of the array");
         }
         catch (Exception e) {
             System.out.println("Unknown error");
@@ -112,15 +119,13 @@ public class exceptionExercises {
             System.out.println("End Program 3 and 4 ;)");
         }
 
-
-        //The exercise 4 is the use of checked and Uncheked exceptions
     }
         //--------------EXERCISE 1--------------
     public static double function (double x) {
         double a = any.nextDouble(-50,50);
         System.out.println("Knowing that 'a' is: " + a);
 
-        if (x < 0) {
+        if (x < 0 ) {
             if (x == 0) throw new IllegalArgumentException("There is a zero in the denominator");
             return x + Math.pow(Math.sin((1 /(x - a)) + 4), 2);
         } else {
@@ -154,6 +159,9 @@ public class exceptionExercises {
         for (int i = 0; i < array.length; i ++) {
            array[i] = any.nextInt(5,15);
            arr [array[i]] = any.nextInt(5,15);
+
+//            array[k1] = 20;
+//            array[k2] = 25;
 
            if (shadedArea(array[i], arr[array[i]])) {
                System.out.println("x: " + array[i] + ", y: " + arr[array[i]]);
