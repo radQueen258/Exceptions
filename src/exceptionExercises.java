@@ -49,7 +49,7 @@ public class exceptionExercises {
             Arr[7] = 12;
 
             for (int j : Arr) {
-                System.out.print(j + " ");
+                System.out.print( j + " ");
             }
             System.out.println();
 
@@ -75,7 +75,6 @@ public class exceptionExercises {
     public static void exercise3and4() {
         System.out.println("--------------EXERCISE 3 AND 4--------------");
 
-
         try {
             System.out.println("n: ");
             int n = radka.nextInt();
@@ -83,16 +82,14 @@ public class exceptionExercises {
             if (n < 15) {
                 throw new UnauthorizedException();
             }
-
             int[] x = new int[n];
             System.out.println("k1: ");
             int k1 = radka.nextInt();
             System.out.println("k2: ");
             int k2 = radka.nextInt();
 
-            if (k1 > n || k2 > n) {
-                throw new InvalidNumbers();
-            }
+            if (k1 > n || k2 > n) throw new InvalidNumbers();
+
             if (k1 > k2) throw new InvalidNumbers();
 
             int[] y = new int[n];
@@ -101,7 +98,6 @@ public class exceptionExercises {
             System.out.println(Arrays.toString(x));
             System.out.println("Y Array");
             System.out.println(Arrays.toString(y));
-            System.out.println();
 
             System.out.println();
         }
@@ -122,11 +118,11 @@ public class exceptionExercises {
     }
         //--------------EXERCISE 1--------------
     public static double function (double x) {
-        double a = any.nextDouble(-50,50);
+        double a = any.nextDouble(100) - 50;
         System.out.println("Knowing that 'a' is: " + a);
 
         if (x < 0 ) {
-            if (x == 0) throw new IllegalArgumentException("There is a zero in the denominator");
+            //if (x == 0) throw new IllegalArgumentException("There is a zero in the denominator");
             return x + Math.pow(Math.sin((1 /(x - a)) + 4), 2);
         } else {
             if (x >= a) throw new IllegalArgumentException("Impossible to find the square root " +
@@ -159,9 +155,6 @@ public class exceptionExercises {
         for (int i = 0; i < array.length; i ++) {
            array[i] = any.nextInt(5,15);
            arr [array[i]] = any.nextInt(5,15);
-
-//            array[k1] = 20;
-//            array[k2] = 25;
 
            if (shadedArea(array[i], arr[array[i]])) {
                System.out.println("x: " + array[i] + ", y: " + arr[array[i]]);
